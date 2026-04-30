@@ -112,6 +112,33 @@ The build output will be in the `dist/` directory.
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
+## 📸 Project Screenshots
+
+### 🏠 Homepage
+<p align="center">
+  <img src="public/images/homepage.png " width="700"/>
+</p>
+
+### 🏠 Homepage (Alternate View)
+<p align="center">
+  <img src="public/images/home_page1.png" width="700"/>
+</p>
+
+### 📞 Contact Page
+<p align="center">
+  <img src="public/images/contact_page.png" width="700"/>
+</p>
+
+### ⚙️ Customization Page
+<p align="center">
+  <img src="public/images/customization_page.png" width="700"/>
+</p>
+
+### 🧩 3D Model Viewer
+<p align="center">
+  <img src="public/images/3D_model .png" width="700"/>
+</p>
+
 ## Support
 
 For questions or issues, please open an issue on the repository or contact the development team through the Contact page.
