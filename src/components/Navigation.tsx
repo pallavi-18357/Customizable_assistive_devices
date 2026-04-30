@@ -1,12 +1,16 @@
-
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, User, LogOut } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
+import { cn } from "@/lib/utils";
 
-export const Navigation = () => {
+interface NavigationProps {
+  className?: string;
+}
+
+export const Navigation = ({ className }: NavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const { user, logout } = useAuth();
@@ -22,7 +26,7 @@ export const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="border-b bg-white/95 backdrop-blur-sm sticky top-0 z-50">
+    <nav className={cn("border-b bg-white/95 backdrop-blur-sm sticky top-0 z-50", className)}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}

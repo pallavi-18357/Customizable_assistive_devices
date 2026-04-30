@@ -16,7 +16,12 @@
     "strict": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "types": ["node"],
+    "module": "ESNext",
+    "moduleResolution": "Node"
+
   },
-  "include": ["vite.config.ts"]
+  "include": ["vite.config.js"]
 }

@@ -1,110 +1,81 @@
+import React from "react";
+import { Linkedin, Twitter, Instagram, Youtube, Facebook } from "lucide-react";
 
-import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Github, Twitter, Linkedin } from "lucide-react";
-
-export const Footer = () => {
-  return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
-          {/* Brand Section */}
-          <div className="col-span-1">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">AT</span>
-              </div>
-              <span className="font-bold text-xl">AssistTech</span>
-            </div>
-            <p className="text-gray-400 mb-4">
-              Empowering independence through customizable assistive technology.
-            </p>
-            <div className="flex space-x-4">
-              <Twitter className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
-              <Linkedin className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
-              <Github className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/" className="text-gray-400 hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/devices" className="text-gray-400 hover:text-white transition-colors">
-                  Devices
-                </Link>
-              </li>
-              <li>
-                <Link to="/customize" className="text-gray-400 hover:text-white transition-colors">
-                  Customize
-                </Link>
-              </li>
-              <li>
-                <Link to="/my-designs" className="text-gray-400 hover:text-white transition-colors">
-                  My Designs
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Support */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4">Support</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/contact" className="text-gray-400 hover:text-white transition-colors">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Help Center
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Documentation
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Community
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4">Contact</h3>
-            <div className="space-y-3">
-              <div className="flex items-center">
-                <Mail className="w-4 h-4 mr-2 text-gray-400" />
-                <span className="text-gray-400">support@assisttech.com</span>
-              </div>
-              <div className="flex items-center">
-                <Phone className="w-4 h-4 mr-2 text-gray-400" />
-                <span className="text-gray-400">+1 (555) 123-4567</span>
-              </div>
-              <div className="flex items-center">
-                <MapPin className="w-4 h-4 mr-2 text-gray-400" />
-                <span className="text-gray-400">Tech City, TC 12345</span>
-              </div>
-            </div>
-          </div>
+const Footer: React.FC = () => (
+  <footer className="w-full bg-[#f7f6e7] border-t border-gray-200 pt-12 pb-6 px-4 mt-8 text-gray-800">
+    <div className="max-w-7xl mx-auto flex flex-col gap-12">
+      {/* Newsletter Signup */}
+      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+        <div className="flex-1 min-w-[250px]">
+          <h2 className="text-3xl font-bold mb-2">Join our newsletter</h2>
+          <p className="mb-4 text-lg">Get the latest tips, tutorials, and exclusive deals straight to your inbox.</p>
+          <form className="flex flex-col sm:flex-row gap-4 items-start sm:items-end">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="border-b border-gray-400 bg-transparent px-2 py-2 text-lg focus:outline-none focus:border-black w-64"
+              required
+            />
+            <button
+              type="submit"
+              className="bg-gray-800 text-white px-8 py-2 text-lg font-semibold rounded-none hover:bg-black transition"
+            >
+              SUBSCRIBE
+            </button>
+          </form>
+          <p className="mt-2 text-sm text-gray-600">We care about your data in our <a href="/privacy" className="underline">privacy policy</a>.</p>
         </div>
-
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400">
-            © 2024 AssistTech. All rights reserved. | Privacy Policy | Terms of Service
-          </p>
+        {/* Social and Links */}
+        <div className="flex-1 flex flex-col gap-8">
+          <div>
+            <span className="font-semibold text-lg mb-2 block">Follow us</span>
+            <div className="flex gap-4 mt-2">
+              <a href="#" aria-label="LinkedIn" className="bg-white rounded-full p-3 shadow hover:bg-gray-100 transition"><Linkedin className="w-5 h-5" /></a>
+              <a href="#" aria-label="Twitter" className="bg-white rounded-full p-3 shadow hover:bg-gray-100 transition"><Twitter className="w-5 h-5" /></a>
+              <a href="#" aria-label="Instagram" className="bg-white rounded-full p-3 shadow hover:bg-gray-100 transition"><Instagram className="w-5 h-5" /></a>
+              <a href="#" aria-label="YouTube" className="bg-white rounded-full p-3 shadow hover:bg-gray-100 transition"><Youtube className="w-5 h-5" /></a>
+              <a href="#" aria-label="Facebook" className="bg-white rounded-full p-3 shadow hover:bg-gray-100 transition"><Facebook className="w-5 h-5" /></a>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-4">
+            <div>
+              <span className="font-semibold mb-2 block">Product</span>
+              <ul className="space-y-1">
+                <li><a href="/shop" className="hover:underline">Shop</a></li>
+                <li><a href="/services" className="hover:underline">Services</a></li>
+              </ul>
+            </div>
+            <div>
+              <span className="font-semibold mb-2 block">Company</span>
+              <ul className="space-y-1">
+                <li><a href="/about" className="hover:underline">About</a></li>
+                <li><a href="/blog" className="hover:underline">Blog</a></li>
+                <li><a href="/contact" className="hover:underline">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <span className="font-semibold mb-2 block">Other Pages</span>
+              <ul className="space-y-1">
+                <li><a href="/signup" className="hover:underline">Sign up</a></li>
+                <li><a href="/login" className="hover:underline">Log in</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
-  );
-};
+      {/* Legal/Attribution Row */}
+      <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-2 border-t border-gray-200 pt-6 mt-6">
+        <div className="flex gap-4">
+          <a href="/licenses" className="hover:underline">Licenses</a>
+          <a href="/style-guide" className="hover:underline">Style Guide</a>
+          <a href="/changelog" className="hover:underline">Change Log</a>
+        </div>
+        <div>
+          Made by <a href="#" className="hover:underline">Your Team</a> &nbsp; Powered by <a href="#" className="hover:underline">React</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+);
+
+export default Footer; 

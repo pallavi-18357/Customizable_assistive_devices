@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -7,36 +6,28 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowLeft, Download, Heart, Share2, Star } from "lucide-react";
 import { Navigation } from "@/components/Navigation";
-import { Device3DViewer } from "@/components/Device3DViewer";
+import { Device3DViewer } from "@/components/ui/Device3DViewer";
 import { toast } from "sonner";
 import { saveAs } from "file-saver";
+import { devices } from "@/components/DeviceGrid"; // Import devices data
 
 const DeviceDetail = () => {
   const { id } = useParams();
   const [liked, setLiked] = useState(false);
 
-  // Mock device data
-  const device = {
-    id: id,
-    name: "Custom Prosthetic Hand",
-    category: "Prosthetics",
-    description: "Advanced 3D printed prosthetic hand with customizable grip strength and finger positioning. Designed for maximum functionality and comfort.",
-    longDescription: "This prosthetic hand represents the latest in assistive technology, combining advanced materials with precision engineering. Each finger can be individually customized for optimal grip patterns, and the palm size can be adjusted to match the user's specific measurements.",
-    rating: 4.8,
-    downloads: 1234,
-    reviews: 89,
-    difficulty: "Intermediate",
-    printTime: "8-12 hours",
-    materials: ["PLA", "TPU", "Metal inserts"],
-    fileSize: "2.4 MB",
-    lastUpdated: "2024-01-15"
-  };
+  // Find the device based on the ID from the URL
+  const device = devices.find(d => d.id === parseInt(id || ''));
+
+  // Handle case where device is not found (optional: show error or redirect)
+  if (!device) {
+    return <div>Device not found</div>;
+  }
 
   const handleDownload = () => {
-    // Simulate STL file download
-    const blob = new Blob(["STL file content would be here"], { type: "application/octet-stream" });
-    saveAs(blob, `${device.name.replace(/\s+/g, '_')}.stl`);
-    toast.success("STL file downloaded successfully!");
+    // Simulate GLB file download
+    const blob = new Blob(["GLB file content would be here"], { type: "model/gltf-binary" });
+    saveAs(blob, `${device.name.replace(/\s+/g, '_')}.glb`);
+    toast.success("GLB file downloaded successfully!");
   };
 
   const handleLike = () => {
@@ -65,7 +56,7 @@ const DeviceDetail = () => {
         <div className="grid lg:grid-cols-2 gap-8">
           {/* 3D Viewer */}
           <div className="space-y-4">
-            <Device3DViewer deviceType="prosthetic" onDownload={handleDownload} />
+            <Device3DViewer deviceType={device.deviceType} deviceId={device.id} onDownload={handleDownload} />
             
             {/* Quick Actions */}
             <div className="flex gap-2">
@@ -81,7 +72,8 @@ const DeviceDetail = () => {
                 <Share2 className="w-4 h-4 mr-2" />
                 Share
               </Button>
-              <Link to={`/customize/${device.id}`} className="flex-1">
+              {/* Link to customize page using device type */}
+              <Link to={`/customize/${device.deviceType}`} className="flex-1">
                 <Button className="w-full bg-blue-600 hover:bg-blue-700">
                   Customize
                 </Button>
@@ -94,7 +86,7 @@ const DeviceDetail = () => {
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <Badge variant="secondary">{device.category}</Badge>
-                <Badge variant={device.difficulty === "Beginner" ? "default" : "secondary"}>
+                <Badge variant={device.difficulty === "Beginner" ? "default" : device.difficulty === "Intermediate" ? "secondary" : "destructive"}>
                   {device.difficulty}
                 </Badge>
               </div>
@@ -212,7 +204,7 @@ const DeviceDetail = () => {
               className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
             >
               <Download className="w-5 h-5 mr-2" />
-              Download STL File ({device.fileSize})
+              Download GLB File ({device.fileSize})
             </Button>
           </div>
         </div>

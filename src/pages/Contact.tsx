@@ -1,11 +1,9 @@
-
 import { Navigation } from "@/components/Navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Footer } from "@/components/Footer";
 import { Mail, Phone, MapPin, MessageSquare, User, Award, Clock } from "lucide-react";
 import { toast } from "sonner";
 
@@ -216,8 +214,6 @@ const Contact = () => {
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };

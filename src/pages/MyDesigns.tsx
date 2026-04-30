@@ -2,7 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Footer } from "@/components/Footer";
+
 import { Eye, Download, Edit, Trash2 } from "lucide-react";
 
 const MyDesigns = () => {
@@ -83,8 +83,6 @@ const MyDesigns = () => {
           ))}
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };
