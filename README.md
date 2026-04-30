@@ -1,73 +1,117 @@
-# Welcome to your Lovable project
+# Adapt Aid Design Hub
 
-## Project info
+A modern web application for browsing, customizing, and managing assistive device designs. This platform enables users to explore adaptive equipment like wheelchairs and orthotics, customize designs to meet individual needs, and save their personalized designs.
 
-**URL**: https://lovable.dev/projects/96d6d5c5-3375-4a71-ae98-343aae597cf0
+## Features
 
-## How can I edit this code?
+- **Device Browsing**: Explore a catalog of assistive devices with interactive 3D model viewing
+- **Customization**: Personalize device designs with an intuitive customization interface
+- **Design Management**: Save, manage, and revisit your custom designs
+- **User Authentication**: Secure login and registration system
+- **3D Model Viewer**: Interactive 3D visualization of devices using Google Model Viewer
+- **Responsive Design**: Fully responsive interface that works on desktop and mobile devices
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- **Frontend Framework**: React 18+ with TypeScript
+- **Build Tool**: Vite
+- **UI Components**: shadcn-ui with Radix UI primitives
+- **Styling**: Tailwind CSS with PostCSS
+- **3D Visualization**: Google Model Viewer, Three.js with @react-three/fiber
+- **Form Management**: React Hook Form
+- **Data Fetching**: TanStack React Query
+- **Routing**: React Router
+- **Development**: ESLint for code quality
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/96d6d5c5-3375-4a71-ae98-343aae597cf0) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js 16+ and npm/bun installed
+- Git for version control
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd adapt-aid-design-hub
+   ```
 
-Follow these steps:
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or with bun
+   bun install
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   The application will be available at `http://localhost:5173`
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Available Scripts
 
-# Step 3: Install the necessary dependencies.
-npm i
+- `npm run dev` - Start development server with hot reload
+- `npm run build` - Build for production
+- `npm run build:dev` - Build in development mode
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint to check code quality
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+## Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── ui/            # shadcn-ui components
+│   ├── Device3DViewer.tsx
+│   ├── DeviceGrid.tsx
+│   ├── Navigation.tsx
+│   └── Footer.tsx
+├── pages/             # Page components
+│   ├── Devices.tsx
+│   ├── Customize.tsx
+│   ├── MyDesigns.tsx
+│   ├── DeviceDetail.tsx
+│   ├── Contact.tsx
+│   ├── Login.tsx
+│   └── SignUp.tsx
+├── hooks/             # Custom React hooks
+├── lib/               # Utility functions
+├── types/             # TypeScript type definitions
+└── main.tsx           # Application entry point
 ```
 
-**Edit a file directly in GitHub**
+## Development
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Code Style
 
-**Use GitHub Codespaces**
+This project uses ESLint for maintaining code quality. Run the linter with:
+```bash
+npm run lint
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Building for Production
 
-## What technologies are used for this project?
+To create an optimized production build:
+```bash
+npm run build
+```
 
-This project is built with:
+The build output will be in the `dist/` directory.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Contributing
 
-## How can I deploy this project?
+1. Create a feature branch (`git checkout -b feature/amazing-feature`)
+2. Commit your changes (`git commit -m 'Add amazing feature'`)
+3. Push to the branch (`git push origin feature/amazing-feature`)
+4. Open a Pull Request
 
-Simply open [Lovable](https://lovable.dev/projects/96d6d5c5-3375-4a71-ae98-343aae597cf0) and click on Share -> Publish.
+## License
 
-## Can I connect a custom domain to my Lovable project?
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-Yes, you can!
+## Support
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+For questions or issues, please open an issue on the repository or contact the development team through the Contact page.
