@@ -1,7 +1,7 @@
 import React from "react";
 import { Linkedin, Twitter, Instagram, Youtube, Facebook } from "lucide-react";
 
-const Footer: React.FC = () => (
+const Footer: React.FC = () => ( 
   <footer className="w-full bg-[#f7f6e7] border-t border-gray-200 pt-12 pb-6 px-4 mt-8 text-gray-800">
     <div className="max-w-7xl mx-auto flex flex-col gap-12">
       {/* Newsletter Signup */}
